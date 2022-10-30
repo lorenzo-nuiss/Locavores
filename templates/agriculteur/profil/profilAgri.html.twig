@@ -1,0 +1,259 @@
+{% extends 'layout-agri.html.twig' %}
+{% block style %}
+
+<style>
+    li img {
+        width: 100%;
+    }
+
+    .lSAction > a  {
+        opacity: 0.8 !important;
+    }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+<link rel="stylesheet" href="{{ asset('css/lightslider.css') }}" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{ asset('js/lightslider.js') }}"></script>
+
+{% endblock %}
+{% block title %}Magasin
+{% endblock %}
+{% block h1 %}Bienvenue
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="presentation row">
+        {% for notification in app.flashes('success') %}
+                <div class="col-md-6 mx-auto text-center alert alert-success d-flex mt-md-3"  role="alert">
+                    <div class="flex-grow-1">
+                    {{ notification }}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        {% endfor %}
+
+    </div>
+
+    <section class="banniere row mt-5 pt-sm-5 pt-lg-0">
+<div class="col-xl-4 col-lg-4 col-md-8 col-sm-12 d-flex justify-content-evenly flex-column">
+<h2 class="large marron">Votre magasin</h2>
+
+<div class="form-important">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" {{ (app.user.disponible) ? 'checked' : '' }}>
+            <label class="form-check-label" for="flexSwitchCheckDefault">Disponible</label>
+        </div>
+        <p class="mt-3 pe-4">Attention si vous indiquez que vous êtes indisponible, votre magasin apparaitra comme etant indisponible pour les visiteurs</p>
+    </div>
+</div>
+<div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 container-img">
+             <img class="photo-profil" id="photo"
+             {% if app.user.photo %} 
+             src="{{ asset("upload/" ~ app.user.photo) }}"
+             {% else %} src="{{ asset("images/Photo-agriculteur.jpg") }}"
+              {% endif %}
+               style="width:100%" alt="Photo de profil">
+               <div class="d-flex justify-content-around content-form">
+                <div>
+
+{{ form_start(form)}}
+{{ form_errors(form.photo) }}
+{{ form_widget(form.photo, {'attr' : {"onChange" : "loadFile(event)"}}
+) }}
+</div>
+<div class="">
+<input type="submit" class="btn btn1 btn_sm" value="Sauvegarder">
+{{ form_end(form)}}
+</div>
+               </div>
+</div>
+
+    </section>
+    {# ------- 1 ------ #}
+    <section class="banniere">
+        <div class="row justify-content-center">
+  
+        </div>
+    </section>
+
+
+    {# ----- Chager image de profil ---- #}
+    <div class="d-flex lign-items-center my-3">
+
+    </div>
+    {# ------------- Modification perso -------- #}
+    <div class="row block-cards my-5">
+        <div class="col-xl-6 col-md-8 col-sm-12">
+            <div class="card">
+                <div class="card-body p-4">
+                    <h3 class="card-title typo mb-5">Votre ferme <i class="bi bi-shop ps-3 "></i></h3>
+                    <div class="d-flex">
+                        <ul>
+                            <li>
+                                Nom :<span>
+                                    {{ app.user.nom }}
+                                </span>
+                            </li>
+                            <li>Mail :<span>
+                                    {{ app.user.email }}</span>
+                            </li>
+                            <li>
+                                Nom de votre établissement:<span>
+                                    {{ app.user.nomDomaine }}
+                                </span>
+                            </li>
+                            <li>Adresse :<span>
+                                    {{ app.user.adresse }}</span>
+                            </li>
+
+                        </ul>
+                        <ul>
+                            <li>Ville :<span>
+                                    {{ app.user.ville }}</span>
+                            </li>
+                            <li>Code Postal :<span>
+                                    {{ app.user.codePostal }}</span>
+                            </li>
+                            {% if app.user.telPortable %}
+                            <li>Téléphone portable :<span>
+                                    {{ app.user.telPortable }}</span>
+                            </li>
+                            {% endif %}
+                            {% if app.user.telFixe %}
+                            <li>Téléphone :<span>
+                                    {{ app.user.telFixe }}</span>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <p>Descriptif :
+                    </br>
+                    <span>
+                        {{ app.user.descriptif }}</span>
+                    </p>
+                    <a href="{{ path('agriculteur_editProfil')}}" class="btn btn1 btn_sm"><i class="bi bi-pencil-square me-1"></i>Modifier</a>
+                    <hr>
+                    <p><a href="{{ path('app_forgot_password_request') }}" class="link"> Changer votre mot de passe</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-6 col-md-12 col-sm-12 mt-sm-5 mt-xl-0">
+            <div class="card categorie">
+                <div class="card-body p-4">
+                    <h3 class="card-title typo">Gérez vos catégories <i class="ps-3 bi bi-list-ul"></i></h3>
+                    {# J'initialise un array pour stocker les categorie dont l'agriculteur n'est pas present #}
+                    {% set categorieOut = [] %}
+                    {% set i = 0 %}
+
+                    {% for catRepo in categorie %}
+
+                    {# Je compare si la categorie de la boucle est aussi dans les categorie actives de l'agriculteur #}
+                    {% if catRepo in app.user.categorie %}
+                    <div class="item ps-3">
+                    <div class="row align-items-center my-4">
+                        <h4 class="col typo"> <i class="bi bi-dot"></i>{{ catRepo.nom }}</h4>
+                        <div class="col">
+                            <a href="{{ path('agriCategorie_addImages', {'userCategorie': 'edit', 'id': catRepo.id, 'slug': catRepo.nom|replace({' ': '_'}) } ) }}" class="btn btn1 btn_sm col"><i class="bi bi-pencil-square"></i> Modifier</a>
+                        </div>
+                    </div>
+                            {# J'affiche les images si celles ci est associé a la categorie en cours de boucle #}
+                        <ul id="content-slider{{ i }}" class="content-slider px-0">
+
+                            {% for image in app.user.images %}
+                            {% if image.categorie == catRepo %}
+                            <li>
+                                <img src="{{ asset('/upload/produit/' ~ image.nom) | imagine_filter('thumb') }}" alt="Les produits {{ catRepo.nom }}" width="auto">
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                            {% set i = i + 1 %}
+
+                        </ul>
+                        </div>
+                        <hr class="my-5">
+
+                            {% elseif app.user.categorie not in catRepo.nom %}
+                            {% set categorieOut = categorieOut|merge([catRepo]) %}
+                            {% endif %}
+                            {% endfor %}
+                            <ul>
+                                {% if categorieOut %}
+                            <li>
+                            <h4 class="typo">Autres catégories</h4>
+                            </li>
+                                {% endif %}
+                                {% for c in categorieOut %}
+                                <li class="mb-2">
+                                    <a class="btn btn2 btn_sm link-vide-categorie" href="{{ path('agriCategorie_addImages',{'userCategorie': 'new','id': c.id, 'slug': c.nom|replace({' ': '_'}) } ) }}">
+                                     <i class="bi bi-plus-square"></i> Ajouter <span class="nom-categorie-vide">{{ c.nom }}</span></a>
+                                </li>
+
+                                {% endfor %}
+                                {# ------------------ BASE ------------------ #}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                {% for key, img in app.user.categorie %}
+                $('#content-slider{{key}}').lightSlider({
+                    item: 4,
+                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                    keyPress: true,
+                    slideMove: 2,
+                    speed: 600,
+                    responsive: [
+                        {
+                            breakpoint: 800,
+                            settings: {
+                                item: 3,
+                                slideMove: 1,
+                                slideMargin: 6,
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                item: 2,
+                                slideMove: 1
+                            }
+                        }
+                    ]
+                });
+                {% endfor %}
+
+            });
+        </script>
+
+        {% endblock body %}
+        {% block js %}
+
+        <script>
+            window.onload = () => {
+                let activer = document.querySelectorAll("[type=checkbox]")
+                for (let bouton of activer) {
+                    bouton.addEventListener("click", function () {
+                        let xmlhttp = new XMLHttpRequest;
+
+                        xmlhttp.open("get", "/agriculteur/disponible")
+                        xmlhttp.send()
+                    })
+                }
+            }
+        </script>
+
+        <script>
+            let loadFile = function (event) {
+                let image = document.getElementById('photo');
+                image.src = URL.createObjectURL(event.target.files[0]);
+            }
+        </script>
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        {% endblock js %}

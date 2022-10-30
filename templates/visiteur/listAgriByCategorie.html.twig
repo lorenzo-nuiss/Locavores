@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+			{% block title %}
+Les producteurs de {{ categ.nom }} -
+{{parent()}}
+			{% endblock %}
+
+			{% block metaDescr %}
+		<meta name="description" content="Découvrez les producteurse de {{ categ.nom }} de vos région, parce que chaque producteur est différent renseignez vous sur ceux qui vous correspondent le plus.">
+			{% endblock %}
+            
+{% block body %}
+{% if categ %}
+<section class="bgimage banner banner-epi shadow container mt-5" style="background-image: linear-gradient( rgba(0, 0, 0, 0.68) 100%, rgba(0, 0, 0, 0.68)100%),
+      url('{{ asset('/upload/' ~ categ.image) }}') !important;">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 m-auto text-center">
+                    <h1>{{ categ.nom }}</h1>
+					{# --------- #}
+
+					<nav class="d-flex justify-content-center" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a class="link" href="{{ path('home') }}">Accueil</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ categ.nom }}</li>
+  </ol>
+</nav>
+					{# --------- #}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+
+<main class="container mt-5">
+
+{% if agriculteurs is empty %}
+<div class="py-5 mb-4">
+<h4 class="pt-3 pb-5 text-center">Il n'y a pas de producteurs inscrits dans cette catégorie pour l'instant.</h4>
+</div>
+{% endif %}
+
+    <section class="row row-cols-sm-1 row-cols-xs-1 row-cols-md-1 row-cols-lg-2 g-5 list-card">
+    {# -------- #}
+
+    {% for agriculteur in agriculteurs %}
+<div class="col-md">
+
+    <div class="card h-100">
+        <a class="row" href="{{ path('showAgriVisiteur', {'name': agriculteur.nomDomaine|replace({' ': '_'}), 'id': agriculteur.id}) }}">
+            <div class="col container-img">
+            {% if agriculteur.photo %}
+                <img src="{{ asset('/upload/' ~ agriculteur.photo) }}" class="img-fluid rounded" alt="Images du producteur">            
+            {% else %}
+            <img src="{{ asset('/images/Profil-marchand.jpg') }}" class="img-fluid rounded" alt="Images du producteur">            
+            {% endif %}
+            </div>
+            <div class="col-7">
+                <div class="card-body">
+                    <h4 class="card-title typo">{{ agriculteur.nomDomaine|capitalize}}</h4>
+        <small class="text-muted"> {{ agriculteur.adresse}} {{ agriculteur.codePostal}} {{ agriculteur.ville}}</small>
+
+                    <p class="card-text">
+                        {% if agriculteur.descriptif|length > 160 %}
+                    {{ agriculteur.descriptif|capitalize|slice(0, 160) ~ '...' }}   
+                    {% else %}
+                    {{ agriculteur.descriptif|capitalize}}
+                      {% endif %}
+                    </p>
+                    <hr>
+
+                    <p class="card-text"><small class="">
+                        {% for categorie in agriculteur.categorie %}
+                        {% if categorie == agriculteur.categorie|last %}
+                {{ categorie.nom }}  
+
+                									{% else %}
+                {{ categorie.nom }}  &bull;
+                                 {% endif %}
+                    {% endfor %}
+                    </small></p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</div>
+    {% endfor %}
+    {# -------- #}
+
+    </section>
+    {% if agriculteurs %}
+<div class="mt-4 mb-5">
+<ul class="pagination">
+
+    <li class="page-item {{ (page == 1) ? 'disabled' : '' }}">
+            <a href="{{ (page > 1) ? '?page=' ~ (page - 1) : '' }}" class="page-link" aria-label="Precedent">
+                <span aria-hidden="true">&laquo;</span>
+                            </a>
+        </li>
+        
+        {% set pages = (total / limit)|round(0, 'ceil') %}
+    {% for item in 1..pages %}
+    <li class="page-item {{ (page == item) ? 'active' : '' }}">
+                <a href="?page={{ item }}" class="page-link">{{ item }}</a>
+            </li>    {% endfor %}
+
+            <li class="page-item {{ (page == pages) ? 'disabled' : '' }}">
+            <a href="{{ (page < pages) ? '?page=' ~ (page + 1) : '' }}" class="page-link" aria-label="Suivant">
+                <span aria-hidden="true">&raquo;</span>
+                            </a>
+        </li>
+</ul>
+</div>
+{% endif %}
+
+</main>
+{% endblock %}

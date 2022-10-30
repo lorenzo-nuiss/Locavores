@@ -1,0 +1,88 @@
+nav.sidebar:hover li {
+  width: 120px;
+}
+
+nav.sidebar:hover .nav-link {
+  padding-left: 12px;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+nav.sidebar:hover .menu-text {
+  padding-left: 4px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+nav.sidebar {
+  width: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+nav.sidebar:hover {
+  width: 120px;
+}
+
+nav.sidebar i {
+  font-size: 18px;
+}
+
+nav.sidebar .logo-container {
+  margin-bottom: 30px;
+}
+
+nav.sidebar .logo-container .logo {
+  font-size: 33px;
+}
+
+nav.sidebar a.border-top {
+  border-radius: 0 !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+nav.sidebar li {
+  width: 60px;
+  height: 46px;
+  line-height: 24px;
+  overflow: hidden;
+  padding: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+nav.sidebar li a {
+  padding-left: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+nav.sidebar li a i {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-size: 18px;
+  color: #fff;
+}
+
+nav.sidebar li span {
+  -webkit-transform: translate(12px);
+          transform: translate(12px);
+  padding-left: 10px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+/*# sourceMappingURL=sidebar-nav.css.map */

@@ -1,0 +1,172 @@
+
+{% extends 'admin/table.html.twig' %}
+
+{% block title %}Administration Producteur{% endblock %}
+{% block style %}
+<style>
+    .card .notif {
+        font-size: 17;
+        font-weight: 600;
+    }
+</style>
+
+{% endblock %}
+{% block card %}
+	<h1 class="h2 pt-md-5 pb-md-3 text-center">Producteurs 
+    <span class="fw-bold">
+            {% if app.request.attributes.get('_route') == 'unnabledAgri.admin' %}
+            supprimés
+        {% endif %}
+        {% if app.request.attributes.get('_route') == 'attAgri.admin' %}
+    en attente de validation
+        {% endif %}
+    </span></h1>
+{% for notification in app.flashes('success') %}
+<div class="col-md-6 mx-auto text-center alert alert-success">{{ notification }}</div>
+{% endfor %}
+{% endblock card %}
+
+{% block linkAdd %}
+<a href="{{ path("addAgri.admin") }}" class="btn btn-primary">Enregistrer un nouveau producteur</a>
+{% endblock %}
+
+
+{% block tableHeader %}
+
+            {% if app.request.attributes.get('_route') == 'unnabledAgri.admin' %}
+	<div class="card-header bg-table-danger">
+		<i class="fas fa-table me-1"></i> Liste des producteurs supprimés
+	</div>
+    {% endif %}
+        {% if app.request.attributes.get('_route') == 'attAgri.admin' %}
+	<div class="card-header bg-table-warning">
+		<i class="fas fa-table me-1"></i> Liste des producteurs en attentes de validation
+	</div>
+        {% endif %}
+        
+	{% endblock %}
+
+
+{% block table %}
+
+<thead>
+    <tr>
+        <th>Nom du domaine</th>
+        <th>Photo</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Disponible</th>
+        <th>Etat</th>
+        <th>Action</th>
+
+    </tr>
+</thead>
+<tbody>
+    {% for key, agriculteur in agriculteurs %}
+    <tr>
+        <td>{{ agriculteur.NomDomaine }}</td>
+        <td>
+            {% if agriculteur.photo %}
+            <img src="{{ asset('/upload/' ~ agriculteur.photo) | imagine_filter('thumbMedium') }}" class="img-fluid" alt="Photo de {{ agriculteur.nom }}">
+            {% else %}
+            Le producteur n'a pas de photo.
+            {% endif %}
+        </td>
+        <td>{{ agriculteur.nom }}</td>
+
+
+        <td>{{ agriculteur.email }}</td>
+        <td>{{ agriculteur.disponible ? 'Oui' : 'Non' }}</td>
+        <td>{{ agriculteur.etat }}</td>
+
+        <td>
+            {# <a href="{{ path('showAgri.admin', {'id': agriculteur.id}) }}">Tout voir</a> #}
+            {# ----------Modal ------------ #}
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ key }}">
+                Voir
+            </button>
+        </td>
+        
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{ key }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Détail producteur</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        {% if agriculteur.photo %}
+                                        <img src="{{ asset('/upload/' ~ agriculteur.photo) | imagine_filter('thumbMedium') }}" class="img-fluid" alt="Photo de {{ agriculteur.nom }}">
+                                        {% else %}
+                                        Le producteur n'a pas de photo
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p>Nom de l'établissement : <span class="fw-bolder">{{ agriculteur.NomDomaine }}</span> </br>
+                                            Ville : <span class="fw-bolder">{{ agriculteur.ville }}</span></br>
+                                            N° téléphone portable : <span class="fw-bolder">{{ agriculteur.TelPortable }}</span></br>
+                                            Disponible : <span class="fw-bolder">{{ agriculteur.disponible ? 'Oui' : 'Non' }}</span></br>
+                                            Email : <span class="fw-bolder">{{ agriculteur.email }}</span></br>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <p>Adresse : <span class="fw-bolder">{{ agriculteur.adresse }}</span> </br>
+                                            Code postal : <span class="fw-bolder">{{ agriculteur.CodePostal }}</span></br>
+                                            N° téléphone fixe : <span class="fw-bolder">{{ agriculteur.TelFixe }}</span></br>
+                                            Etat : <span class="fw-bolder">{{ agriculteur.etat }}</span></br>
+                                            Nom : <span class="fw-bolder">{{ agriculteur.Nom }}</span></br>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>
+                                            Description : </br>{{ agriculteur.descriptif }}
+                                        </p>
+
+                                        <p>
+                                            Catégorie :
+                                            <span class="fw-bolder">
+                                                {% if agriculteur.categorie is not empty %}
+                                                {% for cat in agriculteur.categorie %}
+                                                {% if cat == agriculteur.categorie|last %}
+                                                {{ cat.nom }}
+
+                                                {% else %}
+                                                {{ cat.nom }} /
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% else %}
+                                                Pas de catégorie associée
+        {% endif %}
+        </span>
+        </p>
+        </div>
+        </div>
+        </div>
+
+
+                </div>
+                    <div class="modal-footer">
+                        <a href="{{ path('deleteAgri.admin', {'id': agriculteur.id}) }}" class="btn btn-danger me-auto">Supprimer</a>
+                        <a href="{{ path('editAgri.admin', {'id': agriculteur.id}) }}" class="btn btn-warning">Modifier</a>
+                        <a href="{{ path('updateEtat', {'id': agriculteur.id}) }}" class="btn btn-primary">Valider</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {# -------------------------- #}
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="12">Liste vide</td>
+    </tr>
+    {% endfor %}
+
+    {% endblock %}

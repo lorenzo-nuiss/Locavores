@@ -1,0 +1,32 @@
+body {
+  font-family: system-ui, 'Noto Sans', sans-serif !important;
+}
+h2.typo {
+  color: $noir;
+  @media (min-width: 1024px) {
+    font-size: 2.2em !important;
+  }
+}
+
+h3.typo {
+  color: $marron;
+  @media (min-width: 1024px) {
+    font-size: 1.8em !important;
+  }
+}
+
+h4.typo {
+  color: $marron;
+  @media (min-width: 1024px) {
+    font-size: 1.4em !important;
+  }
+}
+p.typo {
+  font-size: 16px;
+}
+.semi-bold{
+  font-weight: 600 !important;
+}
+.small-bold{
+  font-weight: 500 !important;
+}

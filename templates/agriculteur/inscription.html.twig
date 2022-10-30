@@ -1,0 +1,195 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Locavor-Inscription{% endblock %}
+
+				{% block style %}
+<style>
+header .navbar{
+    position: relative !important;
+}
+header{
+    padding-bottom:3.4rem !important;
+}
+</style>
+		{% endblock %}
+{% block body %}
+
+
+{# ---------- #}
+
+<main class="container-fluid mb-3">
+<div class="row signup pb-3">
+<div class="col-12 col-lg-6 d-flex flex-column pb-5">
+<div class="m-auto container_form">
+ <div class="form_inscription">
+    <h2 class="typo_large">Créez votre compte</h2>
+    <p class="typo mt-3 mb_1"> <b>Vous êtes producteur ?</b> Il vous faut créer votre compte pour pouvoir apparaitre sur le site. Ça ne prendra que quelques minutes !</p>
+
+{# indique le nombre d etapes en javascript #}
+<div class="step-indicator d-flex mb-2">
+</div>
+<p class="text-muted small_text mb_2">( Tous les champs sont obligatoires )</p>
+
+{# debut formulaire #}
+    {{ form_start(registrationForm)}}
+
+    <div class="step" id="page1">
+        {{ form_errors(registrationForm.nom) }}
+    {{ form_errors(registrationForm.ville) }}
+    {{ form_errors(registrationForm.code_postal) }}
+    {{ form_errors(registrationForm.adresse) }}
+    {{ form_errors(registrationForm.nom_domaine) }}
+    {{ form_errors(registrationForm.descriptif) }}
+    {{ form_errors(registrationForm.tel_portable) }}
+    {{ form_errors(registrationForm.tel_fixe) }}
+
+        {{ form_row(registrationForm.nom, {'attr': {'class': 'form-control'}})}}
+        
+        {{ form_row(registrationForm.ville, {'attr': {'class': 'form-control'}} )}}
+        {{ form_row(registrationForm.code_postal, {'attr': {'class': 'form-control'}})}}
+        {{ form_row(registrationForm.adresse, {'attr': {'class': 'form-control'}})}}
+         <button class="next btn btn1 btn_sm mt-3" type="btn btn1">Suivant</button>
+
+    </div>
+    <div class="step" id="page2">
+          <button class="prev btn btn2 btn_sm" type="button"><i class="bi bi-chevron-left"></i>Précédent</button>
+
+    {{ form_errors(registrationForm.tel_portable) }}
+    {{ form_errors(registrationForm.tel_fixe) }}
+    {{ form_errors(registrationForm.ville) }}
+
+        {{ form_row(registrationForm.nom_domaine, {'attr': {'class': 'form-control'}})}}
+        {{ form_row(registrationForm.descriptif, {'attr': {'class': 'form-control'}})}}
+       {{ form_row(registrationForm.tel_portable, {'attr': {'class': 'form-control'}})}}
+       {{ form_row(registrationForm.tel_fixe, {'attr': {'class': 'form-control'}})}}
+
+          <button class="next btn btn1 btn_sm mt-3" type="button">Suivant</button>       
+    </div>
+
+    <div class="step" id="page3">
+                <button class="prev btn btn2 btn_sm" type="button"><i class="bi bi-chevron-left"></i>Précédent</button>
+
+       {{ form_row(registrationForm.disponible, {'attr': {'class': 'form-select'}})}}
+        {{ form_row(registrationForm.Categorie, {'attr': {'class': 'checkbox-input mt-2'}})}}
+                <button class="next btn btn1 btn_sm mt-3" type="button">Suivant</button>        
+        </div>
+
+    <div class="step" id="page4">
+         <button class="prev btn btn2 btn_sm" type="button"><i class="bi bi-chevron-left"></i>Précédent</button>
+    {{ form_errors(registrationForm.email) }}
+
+        {{ form_row(registrationForm.email, {'attr': {'class': 'form-control'}})}}
+        {{ form_row(registrationForm.password, {'attr': {'class': 'form-control'}})}}
+       {{ form_row(registrationForm.confirm_password, {'attr': {'class': 'form-control'}})}}
+
+    <input type="submit" class="btn btn1 mt-4" value="Enregistrer">
+    {{ form_end(registrationForm) }}
+    </div>
+
+ </div>
+</div>
+</div>
+<div class="col m-auto">
+<img class="radius" src="{{ asset('/images/Couple-agriculteur-devant-ordinateur.jpg') }}" alt="Inscription sur un site">
+</div>
+</div>
+</main>
+{# ----------- #}
+{% endblock %}
+
+{% block js %}
+
+<script>
+// On va chercher les différents éléments de notre page
+const pages = document.querySelectorAll(".step")
+const indicator = document.querySelector(".step-indicator")
+const nbPages = pages.length // Nombre de pages du formulaire
+let pageActive = 1
+
+// On attend le chargement de la page
+window.onload = () => {
+    // On affiche la 1ère page du formulaire
+    document.querySelector(".step").style.display = "initial"
+
+    // On affiche les numéros des pages dans l'entête
+    // On parcourt la liste des pages
+    console.log(nbPages);
+    pages.forEach((page, index) => {
+        // On crée l'élément "numéro de page"
+        let element = document.createElement("div")
+        let hr = document.createElement("hr")
+
+        element.classList.add("page-num")
+        element.id = "num" + (index + 1)
+        if(pageActive === index + 1){
+            element.classList.add("step-active")
+        }
+        
+        // element.innerHTML = index + 1      
+        indicator.appendChild(element)
+         indicator.appendChild(hr)
+    })
+
+    // On gère les boutons "suivant"
+    let boutons = document.querySelectorAll(".next")
+
+    for(let bouton of boutons){
+        bouton.addEventListener("click", pageSuivante)
+    }
+
+    // On gère les boutons "suivant"
+    boutons = document.querySelectorAll(".prev")
+
+    for(let bouton of boutons){
+        bouton.addEventListener("click", pagePrecedente)
+    }
+}
+
+/**
+ * Cette fonction fait avancer le formulaire d'une page
+ */
+function pageSuivante(){
+    // On masque toutes les pages
+    for(let page of pages){
+        page.style.display = "none"
+    }
+
+    // On affiche la page suivante
+    this.parentElement.nextElementSibling.style.display = "initial"
+
+    // On "désactive" la page active
+    document.querySelector(".step-active").classList.remove("step-active")
+
+    // On incrémente pageActive
+    pageActive++
+
+    // On "active" le nouveau numéro
+    document.querySelector("#num"+pageActive).classList.add("step-active")
+}
+
+/**
+ * Cette fonction fait reculer le formulaire d'une page
+ */
+function pagePrecedente(){
+    // On masque toutes les pages
+    for(let page of pages){
+        page.style.display = "none"
+    }
+
+    // On affiche la page suivante
+    this.parentElement.previousElementSibling.style.display = "initial"
+
+    // On "désactive" la page active
+    document.querySelector(".step-active").classList.remove("step-active")
+
+    // On incrémente pageActive
+    pageActive--
+
+    // On "active" le nouveau numéro
+    document.querySelector("#num"+pageActive).classList.add("step-active")
+}
+</script>
+{% endblock %}
+{% block jsheader %}
+{% endblock %}

@@ -1,0 +1,30 @@
+header {
+  padding-bottom: 30px;
+  .navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    transition: top 0.3s;
+    background-color: $gris-clair;
+    border-bottom: 2px solid $noir;
+    padding-left: 10px;
+    .link{
+      width: 160px;
+      text-decoration: none;
+    }
+    .navbar-brand{
+      padding-top: 0;
+      padding-bottom: 0;
+      .brand-logo{
+        width: 105px;
+        margin-top: -4px;
+        margin-bottom: -4px;
+      }
+    }
+  }
+  .dropdown-menu{
+    @media (min-width: 992px) {
+      min-width: 11rem;
+    }
+  }
+}

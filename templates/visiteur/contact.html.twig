@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+ Contact -
+{{parent()}}
+			{% endblock %}
+
+			{% block metaDescr %}
+		<meta name="description" content="Vous souhaitez contacter Les locavores ? vous pouvez nous appeller ou bien nous envoyer un message.">
+			{% endblock %}
+				{% block style %}
+<style>
+header .navbar{
+    position: relative !important;
+}
+header{
+    padding-bottom: 0 !important;
+}
+</style>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		{% endblock %}
+
+{% block navbarPageContact %}
+<a class="nav-link active" aria-current="page" href="{{ path('contact')}}">Contact</a>
+{% endblock %}
+
+
+{% block body %}
+
+
+{# ---------- #}
+
+<main class="contact py-5">
+<div class="container mb-3 py-3">
+<div class="row gx-md-5 pb-3">
+
+<div class="col-12 col-lg-6 pe-md-3">
+    <h1 class="semi-bold marron">Contactez nous</h1>
+    <p class="typo mt-4 mb_1 pe-3 gris-fonce">N’hésitez pas à nous envoyer un message pour toute question ou information, vous pouvez aussi nous joindre directement à l'aide des coordonnées ci-dessous.</p>
+
+<div class="contact-detail my-3 col-md-8">
+{% if contactInfo %}
+{% if contactInfo.telFixe %}
+<div class="card my-3">
+  <a href="tel:{{ contactInfo.telFixe }}" class="card-body text-reset text-decoration-none">
+    <p class="link">
+      <i class="bi bi-telephone-fill me-3"></i>
+      {{ contactInfo.telFixe }}
+    </p>
+  </a>
+</div>
+{% endif %}
+
+{% if contactInfo.telPortable %}
+<div class="card my-3">
+    <a href="tel:{{ contactInfo.telPortable }}" class="card-body text-reset text-decoration-none">
+      <p class="link">
+        <i class="bi bi-phone-fill me-3"></i>
+        {{ contactInfo.telPortable }}
+      </p>
+    </a>
+  </div>
+  {% endif %}
+  
+  {% if contactInfo.email %}
+  <div class="card my-3">
+    <a href="mailto:{{ contactInfo.email }}" class="card-body text-reset text-decoration-none">
+      <p class="link">
+        <i class="bi bi-envelope-fill me-3"></i>
+        {{ contactInfo.email }}
+      </p>
+    </a>
+  </div>
+  {% endif %}
+  {% endif %}
+  
+
+</div>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_rzusibpf.json" background="transparent"  speed="0.75"  style="width: 250px; height: 250px; margin: auto;" loop autoplay></lottie-player>
+
+</div>
+
+<div class="col px-5 my-auto">
+<div class="m-auto container_form p-5 radius small_shadow">
+ <div class="form_inscription">
+
+				{% for notification in app.flashes('success') %}
+					<div class="mx-auto alert-dismissible fade show alert alert-success" role="alert">
+                    {{ notification }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                    </div>
+                  <style>
+                    form{
+                        display:none;
+                    }
+                  </style>
+                {% endfor %}
+
+{# debut formulaire #}
+    {{ form_start(form)}}
+    <div class="list-form">
+        {{ form_row(form.statut, {'attr': {'class': 'form-control'}})}}
+        {{ form_row(form.nom, {'attr': {'class': 'form-control'}})}}
+
+        {{ form_row(form.email, {'attr': {'class': 'form-control'}})}}
+
+        {{ form_row(form.telephone, {'attr': {'class': 'form-control'}} )}}
+
+        {{ form_row(form.message, {'attr': {'class': 'form-control'}})}}
+
+<p class="text-muted small_text">( Tous les champs sont obligatoires )</p>
+<div class="text-end">
+     <input type="submit" class="btn btn1 mt-4" value="Envoyer le message">
+</div>
+    {{ form_end(form) }}
+    </div>
+
+ </div>
+</div>
+</div>
+
+</div>
+</div>
+</main>
+{# ----------- #}
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+{% block jsheader %}
+{% endblock %}

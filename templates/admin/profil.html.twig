@@ -1,0 +1,47 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block style %}
+{% endblock %}
+{% block title %}- Contact{% endblock %}
+
+{% block h1 %}Espace profil{% endblock h1 %}
+
+{% block content %}
+<section class="row gx-5 pb-3">
+    <div class="col-12 col-lg-5 pe-3">
+
+        <div class="contact-detail my-3">
+
+            <div class="row">
+                <span class="my-auto col-4">Nom d'utilisateur :</span>
+                <div class="my-3 col-8">
+                        <p class="my-auto">
+                            {{ app.user.username }}
+                        </p>
+                </div>
+            </div>
+
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+            <div class="row">
+                <div class="card my-3 col border border-secondary">
+                    <div class="card-body">
+                        <p class="my-auto">
+                        Votre compte a accès à tous les privilèges.
+                        </p>
+                    </div>
+                </div>
+            </div>
+{% endif %}
+
+            <div class="">
+            <a href="{{ path('deleteAdmin') }}" data-delete data-token="{{ csrf_token('delete')}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? cette action ser définitive.');">Supprimer mon compte</a>
+        
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
+

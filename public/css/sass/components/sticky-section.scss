@@ -1,0 +1,131 @@
+.sticky-element {
+  aside {
+    padding-top: 34px;
+    @media (min-width: 992px) {
+      padding: 80px 40px 80px 10px;
+    }
+    .sticky-div {
+      position: sticky;
+      top: 20vh;
+      bottom: 60px;
+      padding-right: 30px;
+      line-height: 28px;
+      h2{
+          font-weight: 600;
+          margin-bottom: 20px;
+          font-size: 2.3em;
+          color: $noir;
+      }
+      p{
+        margin-bottom: 25px;
+
+      }
+      @media (max-width: 992px) {
+
+      lottie-player{
+        margin-bottom: -80px;
+      }
+    }
+    }
+  }
+  .scrolling {
+    .card {
+      background-color: $gris-clair;
+      margin: 50px 0;
+      border-radius: 15px;
+      border: none;
+      @media (min-width: 992px) {
+        min-height: 70vh;
+        
+      }
+    }
+  }
+}
+
+// sticky-section card
+.scrolling {
+  .block-process {
+    padding: 20px;
+    .card-body {
+      h4 {
+        padding: 16px;
+        font-size: 32px;
+        color: $gris-fonce;
+        font-weight: 700;
+      }
+      div.ligne {
+        .number {
+          svg {
+            width: 60px;
+          }
+        }
+        h5 {
+          font-size: 22px;
+          color: $gris-fonce;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .block-advantage {
+    padding: 20px;
+
+      div.card-body{
+    flex-wrap: wrap;
+      h4 {
+    padding: 16px;
+    font-size: 32px;
+    color: $gris-fonce;
+    font-weight: 700;
+    width: 100%;
+  }
+          .item {
+              width: 50%;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              i{
+                  font-size: 52px;
+                  color: $marron;
+                  padding-right: 10px;
+              }
+                h5 {
+                    font-size: 22px;
+                    color: $gris-fonce;
+                    font-weight: 600;
+                  }
+                  p{
+                      margin-top: -1px;
+                  }
+            }
+        }
+  }
+
+  .block-faq{
+    padding: 20px;
+
+    h4 {
+        padding: 16px;
+        font-size: 32px;
+        color: $gris-fonce;
+        font-weight: 700;
+        width: 100%;
+      }
+      .accordion-item{
+          margin:16px 0;
+          button{
+            font-size: 18px;
+            color: $gris-fonce;
+            font-weight: 700;
+          }
+      }
+      .accordion-button:not(.collapsed){
+          color: $vert1;
+          background-color: hsl(80, 12%, 76%) !important;
+      }
+      .accordion-button:focus{
+          border-color: hsl(80, 9%, 60%);
+          box-shadow: 0 0 0 .25rem hsla(80, 12%, 60%, .45);  
+      }
+  }
+}

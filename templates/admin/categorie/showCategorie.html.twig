@@ -1,0 +1,48 @@
+{% extends 'admin/table.html.twig' %}
+    {% block title %}Gestion Catégories{% endblock %}
+
+{% block h1 %}
+	Catégories
+{% endblock h1 %}
+
+{% block card %}
+	<h1 class="h2 pt-md-5 pb-md-3 text-center fw-bold">Catégories</h1>
+	{% for notification in app.flashes('success') %}
+		<div class="col-md-6 mx-auto text-center alert alert-success">{{ notification }}</div>
+	{% endfor %}
+	{% endblock card %}
+
+{% block linkAdd %}
+
+	<a href="{{ path("addCategorie.admin") }}" class="btn btn-primary">Ajouter une catégorie</a>
+{% endblock %}
+
+{% block table %}
+	<thead>
+
+		<tr>
+			<th>Nom</th>
+			<th>Image</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for res in resultat %}
+
+			<tr>
+				<td><b>{{res.nom}}</b></td>
+				<td><img src="{{asset('upload/'~res.image)}}" width="auto" height="150"></td>
+				<td>
+					<a href="{{ path( 'editCategorie.admin', {'id': res.id} ) }}" class="btn btn-warning">modifier</a>
+				</td>
+				<td>
+    			<a href="{{ path( 'deleteCategorie.admin', {'id': res.id} ) }}" class="btn btn-danger">Supprimer</a>
+
+				</td>
+
+			</tr>
+		{% endfor %}
+
+
+	{% endblock table %}

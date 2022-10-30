@@ -1,0 +1,164 @@
+{% extends 'base.html.twig' %}
+
+			{% block title %}
+Découvrez les producteurs de votre région -
+{{parent()}}
+			{% endblock %}
+            
+
+{# navbar #}
+
+{% block navbarPageHome %}
+<a class="nav-link active" aria-current="page" href="{{ path('home')}}">Accueil</a>
+{% endblock %}
+
+
+{# navbar #}
+
+
+{% block body %}
+
+<section class="bgimage banner">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h1>Découvrez vos producteurs locaux</h1>
+                <p>
+                    Profitez de produit de qualité sans se ruiner tout en soutenant nos producteurs c'est possible ! </br>
+                     Nous mettons en relation les producteurs et les consommateurs pour que tout le monde en profite. Eco-responsable, économique, favorise l'équitabilité 
+                    ne pas passer par les grandes surfaces à de nombreux avantages.
+                </p>
+                <a href="{{ path('contact')}}" class="btn btn1">Nous contacter</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--   LES SERVICES   -->
+<main class="container margin-t" id="producteurs">
+    <div class="justify-content-center service-text">
+        <h2 class="typo">Qu'est ce qui vous interesse ?</h2>
+        <p>
+        Ici vous ne trouverez pas de clémentines en été, ni de fraises en hiver. Nos producteurs font des produits de saison et respectent le produit. 
+           Naviguez parmi les différentes catégories proposées et consultez les producteurs de vos régions.
+        </p>
+    </div>
+    <section class="feature my-3">
+        				{% for categorie in categories %}
+        <div class="ligne retr">
+            <div>
+                <!--  -->
+                <a href="{{ path('listAgriByCategorie', {'categorie_name': categorie.nom|replace({' ': '_'}) }) }}">
+                    <div class="card bg-dark text-white" 
+                    style="background-image: linear-gradient(to top,rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1) 51%, rgba(0, 0, 0, 0.7)),
+                    url({{ asset('./upload/' ~ categorie.image) | imagine_filter('thumbMedium') }});">
+
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">{{ categorie.nom }}</h5>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+            <!--  -->
+        </div>
+				{% endfor %}
+
+    </section>
+    <!--  FIN LES SERVICES   -->
+
+    <!--   LES AVANTAGES   -->
+
+    <section class="advantage margin-t">
+        <div class="semi-banner row">
+            <div class="col-12 d-flex justify-content-center align-self-center">
+                <h3 class="text-white text-large">Les avantages</h3>
+            </div>
+        </div>
+
+        <div class="row list-advantage d-flex justify-content-center">
+            <div class="list-adantage-1 col-4">
+                <i class="bi bi-droplet-half"></i>
+                <h4>Ecologique</h4>
+                <p>
+                    Lorsque l’on consomme un aliment produit localement, on évite de nombreuses pollutions inutiles (transports, conservation, etc ...).
+                </p>
+            </div>
+            <div class="list-adantage-2 col-4">
+                <i class="bi bi-hand-thumbs-up-fill"></i>
+                <h4>Qualité</h4>
+                <p>
+                    Vous êtes en contact direct avec le producteur, ce qui vous assurre des produits ultra-frais et savoureux. 
+                </p>
+            </div>
+            <div class="list-adantage-3 col-4">
+                <i class="bi bi-gear-wide-connected"></i>
+                <h4>Equitable</h4>
+                <p>
+                   En plus de savoir ce que vous mangez, consommer locale c'est moins de charge à payer pour nos producteurs, et ça contribue aussi à préserver le savoir-faire artisanal.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!--  FIN LES AVANTAGES   -->
+
+    <!--  LE PROCESS   -->
+    <section class="process row">
+        <div class="image col-12 col-sm-12 col-md-5 col-lg-5 col-xl-6">
+            <img src="{{ asset('images/Avocat-decoupe.png') }}" alt="image illustration d'etapes" />
+        </div>
+        <div class="timeline col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6">
+            <ul>
+                <li>
+                    <span></span>
+                    <div>
+                        <div class="title">Consultez les producteurs locaux</div>
+                        <div class="info">
+                            Regardez ce que les producteurs vendent.
+                        </div>
+                    </div>
+                    <span class="number">
+                        <span>Etape 1</span>
+                    </span>
+                </li>
+                <li>
+                    <div>
+                        <span></span>
+                        <div class="title">Séléctionnez ceux qui vous interesse</div>
+                        <div class="info">
+                            Selon vos besoins bien sur.
+                        </div>
+                    </div>
+                    <span class="number">
+                        <span>Etape 2</span>
+                    </span>
+                </li>
+                <li>
+                    <div>
+                        <span></span>
+                        <div class="title">Allez à leurs rencontres</div>
+                        <div class="info">Soyez attentifs à la description du producteur pour savoir comment le joindre.</div>
+                    </div>
+                    <span class="number">
+                        <span>Etape 3</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--  FIN PROCESS   -->
+</main>
+
+<!--  DEBUT CTA   -->
+<section class="cta margin-t jumbotron jumbotron-fluid container d-flex justify-content-center align-self-center">
+    <div class="col content">
+        <h3 class="text-white text-large ">
+            Vous etes interessez ou vous avez une question ?
+        </h3>
+        <p>Notre equipe se fera une joie de vous répondre.</p>
+        <a href="{{ path('contact')}}" class="btn btn1">Nous contacter</a>
+    </div>
+</section>
+<!--  FIN CTA   -->
+
+{% endblock %}

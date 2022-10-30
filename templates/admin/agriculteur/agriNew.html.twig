@@ -1,0 +1,67 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block style %}
+<style>
+    main {
+        margin: 20px 10px;
+        padding-top: 10px;
+    }
+
+    main ul li {
+        color: #9D0806;
+        font-size: 1rem;
+    }
+
+    .checkbox label {
+        margin: 0 22px 0 6px;
+    }
+
+</style>
+{% endblock %}
+{% block h1 %}Ajout d'agriculteur{% endblock h1 %}
+
+{% block content %}
+<main class="form-group">
+    {{ form_start(form)}}
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.nom, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-6">{{ form_row(form.email, {'attr': {'class': 'form-control'}})}}</div>
+  </div>
+
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.tel_portable, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-6">{{ form_row(form.tel_fixe, {'attr': {'class': 'form-control'}})}}</div>
+
+  </div>
+      <div class="row">
+        <div class="col-md-6">{{ form_row(form.Nom_domaine, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-6">{{ form_row(form.ville, {'attr': {'class': 'form-control'}})}}</div>
+  </div>
+    <div class="row mt-3">
+        <div class="col-md-6">{{ form_row(form.adresse, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-6">{{ form_row(form.code_postal, {'attr': {'class': 'form-control'}})}}</div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-8">{{ form_row(form.descriptif, {'attr': {'class': 'form-control'}})}}</div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6">{{ form_row(form.disponible, {'attr': {'class': 'form-select'}})}}</div>
+    </div>
+
+    <div class="row mt-3">
+
+        <div class="col checkbox">{{ form_row(form.Categorie, {'attr': {'class': 'checkbox-input mt-2'}})}}</div>
+    </div>
+    <div class="row my-4">
+
+        <div class="col-md-4">{{ form_row(form.password, {'attr': {'class': 'form-control'}})}}</div>
+    </div>
+
+
+    <input type="submit" class="btn btn-primary" value="Enregistrer">
+
+    {{ form_end(form)}}
+</main>
+
+<a href="{{ path('allAgri.admin') }}">Retourner à la liste</a>
+{% endblock %}

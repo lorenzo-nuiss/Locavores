@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Locavor - Connexion administration {% endblock %}
+
+{% block body %}
+<main class="container-fluid mb-5 mt-5 px-5">
+
+<section class="row signup pb-3">
+
+<div class="col-lg-6 col-12">
+
+<img class="radius shadow" src="{{ asset('/images/connexion-espace-administrateur.jpg') }}" alt="Illustration connexion au site">
+
+</div>
+
+
+<div class="col-lg-6 col-12 d-flex flex-column">
+<div class="m-auto container_form">
+
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+{# si l admin est deja connecter un message s affichera #}
+    {% if app.user %}
+        <div class="mb-3">
+            Vous êtes connecté à {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+
+{# on affiche les notifications d erreur #}
+        {% for notification in app.flashes('alert') %}
+        								<div class="mx-auto text-center alert alert-danger d-flex"  role="alert">
+									<div class="flex-grow-1">
+									{{ notification }}
+									</div>
+									  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+        {% endfor %}
+
+    <h1 class="mb-4 pb-md-5 typo semi-bold">Connexion espace administrateur</h1>
+    <label for="inputUsername" class="form-label">Nom d'utilisateur</label>
+    <input type="text" value="{{ last_username }}" name="_username" id="inputUsername" class="form-control mb-xl-2 mb-sm-2" autocomplete="username" required autofocus>
+    <label for="inputPassword" class="form-label mt-xl-4 mt-sm-2">Mot de passe</label>
+    <input type="password" name="_password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}">
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <button class="btn btn1 mt-xl-5 mt-sm-3" type="submit">
+        Se connecter
+    </button>
+    
+</form>
+</div>
+</div>
+</section>
+</main>
+
+
+{% endblock %}

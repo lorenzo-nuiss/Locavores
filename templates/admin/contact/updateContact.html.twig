@@ -1,0 +1,99 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block style %}
+{% endblock %}
+{% block title %}- Contact{% endblock %}
+
+{% block h1 %}Informations de contact{% endblock h1 %}
+
+{% block content %}
+<section class="row gx-5 pb-3">
+    <div class="col-12 col-lg-6 pe-3">
+
+        <div class="contact-detail my-3">
+
+            <div class="row">
+                <span class="my-auto col-4">Téléphone fixe :</span>
+                <div class="card my-3 col-8">
+                    <div class="card-body">
+                        <p class="my-auto">
+                            <i class="fas fa-phone-alt me-3"></i>
+                            {{ contactInfo.telFixe }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <span class="my-auto col-4">Téléphone portable :</span>
+                <div class="card my-3 col-8">
+                    <div class="card-body">
+                        <p class="my-auto">
+                            <i class="fas fa-mobile me-3"></i>
+                            {{ contactInfo.telPortable }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <span class="my-auto col-4">Adresse mail :</span>
+
+                <div class="card my-3 col-8">
+                    <div class="card-body">
+                        <p class="my-auto">
+
+                            <i class="fas fa-envelope me-3"></i>
+                            {{ contactInfo.email }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-6 m-auto">
+        <div class="ps-md-5">
+            <!-- Button trigger modal -->
+            <button type="button" class="ms-md-5 btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Modifier
+            </button>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modifier les informations de contact</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            {{ form_start(form)}}
+
+                            <div class="col">{{ form_row(form.email, {'attr': {'class': 'form-control'}})}}</div>
+                            <div class="col">{{ form_row(form.tel_fixe, {'attr': {'class': 'form-control'}})}}</div>
+                            <div class="col">{{ form_row(form.tel_portable, {'attr': {'class': 'form-control'}})}}</div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <input type="submit" class="btn btn-success" value="Modifier">
+                        {{ form_end(form)}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

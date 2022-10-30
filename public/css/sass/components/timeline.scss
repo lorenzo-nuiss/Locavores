@@ -1,0 +1,86 @@
+.timeline {
+  ul {
+    list-style: none;
+    color: hsl(13, 44%, 10%);
+    padding-left: 88px;
+    font-size: 15px;
+    position: relative;
+    @media (min-width: 780px) {
+      padding-left: 130px;
+      position: relative;
+    }
+    &:before {
+      content: "";
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      border-left: 3px solid $marron;
+    }
+    li {
+      position: relative;
+      margin-left: 40px;
+      background-color: $gris-clair;
+      padding: 14px;
+      padding-top: 8px;
+      border-radius: 6px;
+      width: 230px;
+      @media (min-width: 768px) {
+        width: 300px;
+      }
+      @media (min-width: 992px) {
+        width: 350px;
+      }
+      //   box-shadow: 0 0 4px rgba(0, 0, 0, 0.12)
+    }
+    li:not(:first-child) {
+      margin-top: 70px;
+    }
+    li > span {
+      width: 2px;
+      height: 100%;
+      background: $marron;
+      left: -40px;
+      top: 0;
+      position: absolute;
+    }
+    li > span:before {
+      content: "";
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 12px solid $marron;
+      position: absolute;
+      background: $gris-clair;
+      left: -19px;
+      top: 0;
+    }
+    li > div {
+      margin-left: 10px;
+    }
+  }
+  div .title {
+    font-weight: 600;
+    font-size: 21px;
+  }
+  div .info {
+    font-size: 16px;
+    font-weight: 400;
+    color: $noir;
+    opacity: 0.7;
+  }
+  div > div {
+    margin-top: 5px;
+  }
+  span.number {
+    height: 100%;
+  }
+  span.number span {
+    position: absolute;
+    font-size: 16px;
+    left: -95px;
+    font-weight: bold;
+  }
+  span.number span:first-child {
+    top: 4.5px;
+  }
+}

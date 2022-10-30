@@ -1,0 +1,73 @@
+{% extends 'layout-admin.html.twig' %}
+    {% block title %}Gestion Catégorie{% endblock %}
+
+{% block style %}
+<style>
+main{
+    margin: 20px 10px;
+    padding-top:10px;
+}
+main ul li{
+  color: #9D0806;
+  font-size: 1rem;
+}
+main > div{
+padding: 7px 10px;
+}
+
+main div{
+padding-top: 7px;
+}
+
+main label{
+  margin-right: 10px;
+}
+main input.btn{
+margin-left:25px;
+margin-top:20px;
+
+}
+  </style>
+{% endblock %}
+{% block h1 %}
+	Tableau de bord
+{% endblock h1 %}
+
+{% block content %}
+<main>
+	{{ form_start(form)}}
+	<div>
+		{{ form_label(form.nom)}}
+		{{ form_widget(form.nom)}}
+        {{ form_errors(form.nom)}}
+
+	</div>
+	<div>
+
+	{{ form_row(form.image, {'attr' : {"onChange" : "loadFile(event)"}}
+		) }}
+	</div>
+
+
+		<div class="row justify-content-center">
+			<img id="image" {% if categorie.image %} src="{{ asset("upload/" ~ categorie.image) }}" 
+            {% else %} src="{{ asset("images/default_image.jpg") }}" 
+            {% endif %} style="width:300px">
+		</div>
+
+
+	<input type="submit" class="btn btn-success" value="Enregistrer la modification">
+
+	{{ form_end(form)}}
+	</main>
+{% endblock %}
+
+
+{% block javascripts %}
+	<script>
+		let loadFile = function (event) {
+let image = document.getElementById('image');
+image.src = URL.createObjectURL(event.target.files[0]);
+}
+	</script>
+{% endblock %}

@@ -1,0 +1,19 @@
+section.cta {
+  margin-bottom: 90px;
+  background-color: $gris;
+  border-radius: 20px;
+  .content {
+    padding: 60px 0;
+    text-align: center;
+    h3 {
+      font-size: 36px;
+      font-weight: 600;
+      color: $noir !important;
+    }
+    p {
+      font-size: 16px;
+      color: $noir;
+      opacity: 0.7;
+    }
+  }
+}

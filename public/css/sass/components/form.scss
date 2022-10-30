@@ -1,0 +1,107 @@
+fieldset.sweet-candy{
+    display: none;
+    position: absolute;
+    z-index: -1;
+}
+.form-check-input:checked{
+    border-color: $marron !important;
+}
+.form-check-input:focus{
+    box-shadow: 0 0 0 .25rem rgba(156,194,85,.25) !important;
+}
+.form-control:focus{
+    border-color: $vert1;
+    box-shadow: 0 0 0 .25rem rgba(156,194,85,.25) !important;
+}
+.signup{
+    .container_form{
+        @media (min-width: 1060px) {
+            width: 62%;
+          }
+        .typo_large {
+            color: $marron;
+            @media (min-width: 1060px) {
+              font-size: 2.8em !important;
+            }
+        }
+        .form-control{
+            padding: .7rem 0.75rem;
+            border-radius: .5rem;
+        }
+        .width{
+            width: 100% !important;
+        }
+    }
+     div{
+        img{
+            width: 100%;
+        }
+     }
+}
+
+// inscription
+.signup{
+    .form_inscription{
+    .step-indicator{
+        justify-content: space-between;
+        .page-num{
+            border: 3px solid $gris;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .step-active{
+                border: 5px solid $marron;
+                margin-top: -2px;
+        }
+        hr{
+            width: 6rem;
+            height: 3px;
+            margin-top: 12px;
+            color: $gris;
+        }
+        hr:last-child {
+            display: none;
+        }
+        
+    }
+    .step{
+        display: none;
+        .next{
+                width: 200px;
+            }
+            .prev{
+                margin-top: -1rem;
+                margin-bottom: 2.5rem;
+                .bi{
+                    margin-left: -7px;
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
+}
+.contact{
+    .container_form{
+        background-color: #fff;
+        .form-control{
+            padding: .7rem 0.75rem;
+            border-radius: .5rem;
+        }
+        #contact_statut{
+            display: flex;
+            border: none;
+            .form-check:last-child{
+                padding-left: 4rem;
+            }
+        }
+    }
+    img{
+        width: 100%;
+    }
+}

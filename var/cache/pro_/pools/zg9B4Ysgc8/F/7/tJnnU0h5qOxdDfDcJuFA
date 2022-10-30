@@ -1,0 +1,38 @@
+<?php //App%255CEntity%255CAgriculteur%2524code_postal
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Regex'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Regex')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'type' => [
+                'integer',
+            ],
+            'precision' => [
+                null,
+            ],
+            'scale' => [
+                null,
+            ],
+            'message' => [
+                1 => 'Le code postal saisi n\'est pas reconnu',
+            ],
+            'pattern' => [
+                1 => '/^[0-9]{5}$/',
+            ],
+            'groups' => [
+                1 => [
+                    'Default',
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+    ],
+    []
+); }];

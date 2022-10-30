@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Locavor-Connexion{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block body %}
+<main class="container-fluid my-5 pt-5 px-5">
+
+<section class="row signup pb-3">
+<div class="col-md-6 col-12 d-flex flex-column">
+<div class="m-auto container_form">
+<form method="post">
+    {% if error %}
+        <div class="alert alert-warning">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="my-3">
+             {{ app.user.username }} Vous êtes connecter, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        </div>
+    {% endif %}
+
+    <h2 class="typo_large">Connexion</h2>
+    <p class="typo mt-3 mb-5">Si vous êtes déjà membre connectez-vous içi.</p>
+    <input type="text" value="{{ last_username }}" name="email" id="inputEmail" class="form-control my-xl-4 my-sm-3" autocomplete="email" required autofocus placeholder="Email">
+    <input type="password" name="password" id="inputPassword" class="form-control my-xl-4 my-sm-3" autocomplete="current-password" required placeholder="Mot de passe">
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}">
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <button class="btn btn1 my-3 width" type="submit">
+        Se connecter
+    </button>
+        <br>
+    
+</form>
+        <a href="{{ path('app_forgot_password_request') }}" class="link">Mot de passe oublié ?</a>
+<hr class="my_1">
+<div class="d-flex justify-content-between pb-4">
+<p class="typo m-auto">Vous n'avez pas encore de compte ? 
+</p>
+<div class="ms-2">
+<a href="{{ path('app_registere') }}" class="btn btn1 btn_sm ms-xl-3 ms-lg-2">S'inscrire</a>
+</div>
+</div>
+
+</div>
+</div>
+<div class="col-md-6 col-12">
+<img class="radius" src="{{ asset('/images/Femme-fait-des-recherches-sur-internet.jpg') }}" alt="Illustration connexion au site">
+</div>
+</section>
+</main>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'layout-agri.html.twig' %}
+    {% block title %}Mon profiL{% endblock %}
+
+{% block style %}
+<style>
+.reduire{
+    margin: 20px 10px;
+    padding:20px 160px;
+}
+  </style>
+{% endblock %}
+
+{% block h1 %}
+Votre profil {% endblock h1 %}
+
+{% block body %}
+<main class="container reduire">
+
+{% if app.user.images is not empty %}
+{% if image.categorie.nom == slug %}
+<div>
+<img src="{{ asset('/upload/produit/' ~ image.nom) }}" alt="Image" width="150">
+<a href="{{ path('agriculteur_deleteImages_prod', {'id': image.id}) }}" 
+data-delete data-token="{{ csrf_token('delete' ~ image.id)}}">Supprimer</a>
+</div>
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+		{{ form_label(form.images)}}
+		{{ form_widget(form.images)}}
+        {{ form_errors(form.images)}}
+
+	</div>
+
+	<input type="submit" class="btn btn-success" value="Ajouter une image">
+
+	{{ form_end(form)}}
+    </main>
+{% endblock %}
+
+{% block js %}
+<script src="{{ asset('js/images.js') }}"></script>
+{% endblock js %}

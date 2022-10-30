@@ -1,0 +1,43 @@
+{% extends 'layout-agri.html.twig' %}
+{% block title %}Locavor - Mon magasin
+{% endblock %}
+
+{% block h1 %}
+	Ma ferme
+{% endblock h1 %}
+
+{% block body %}
+<div class="bg-gris-clair">
+<section class="container pt-5 pb-5 m-auto col-lg-8">
+<h1 class="typo text-center mb-md-3"> <strong> Modification de vos informations</strong></h1>
+<a href="{{ path('agriculteur_profil') }}" class="link"><i class="bi bi-arrow-bar-left"></i>Retourner dans mon espace boutique</a>
+<div class="form-group mt-md-5">
+    {{ form_start(form)}}
+    <div class="row">
+                <div class="col-md-6">{{ form_row(form.nom, {'attr': {'class': 'form-control'}})}}</div>
+
+        <div class="col-md-6">{{ form_row(form.email, {'attr': {'class': 'form-control'}})}}</div>
+    
+        <div class="col-md-6">{{ form_row(form.nom_domaine, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-6">{{ form_row(form.ville, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-6">{{ form_row(form.adresse, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-6">{{ form_row(form.code_postal, {'attr': {'class': 'form-control'}})}}</div>
+
+        <div class="col-md-12">{{ form_row(form.descriptif, {'attr': {'class': 'form-control'}})}}</div>
+
+        <div class="col-md-4">{{ form_row(form.tel_portable, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-4">{{ form_row(form.tel_fixe, {'attr': {'class': 'form-control'}})}}</div>
+
+    </div>
+
+    <input type="submit" class="btn btn1 mt-md-3" value="Enregistrer les modifications">
+</div>
+<a href="{{ path('agriculteur_deleteProfil') }}" class="link-danger mt-md-4"
+ onclick="return confirm('Confirmez vous la supression de votre compte ? Cette action est définitive.')">
+Supprimer mon compte <i class="bi bi-x-lg ms-1"></i></a>
+
+    {{ form_end(form)}}
+</section>
+</div>
+
+{% endblock %}

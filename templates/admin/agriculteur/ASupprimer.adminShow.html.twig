@@ -1,0 +1,78 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block title %}Agriculteur{% endblock %}
+{% block h1 %}
+	Profil: {{ agriculteur.Nom }}
+{% endblock h1 %}
+
+
+
+
+{% block linkAddBase %}
+    <a href="{{ path('allAgri.admin') }}">Retournerà la liste</a>
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <tbody>      
+            <tr>
+                <th>Nom</th>
+                <td>{{ agriculteur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Nom du gerant</th>
+                <td>{{ agriculteur.NomDomaine }}</td>
+            </tr>
+                <tr>
+                <th>Categorie</th>
+                  <td>
+                {% if agriculteur.categorie is not empty %}
+                 {% for cat in agriculteur.categorie %}
+                	{% if cat == agriculteur.categorie|last %}
+                {{ cat.nom }}  
+
+                									{% else %}
+                {{ cat.nom }}  /
+                                 {% endif %}
+                 {% endfor %}
+                 {% else %}
+								Pas de catégorie associé</td>
+                 {% endif %}
+
+                 </td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ agriculteur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ agriculteur.ville }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ agriculteur.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Descriptif</th>
+                <td>{{ agriculteur.descriptif }}</td>
+            </tr>
+            <tr>
+                <th>Identifiant</th>
+                <td>{{ agriculteur.telPortable }}</td>
+            </tr>
+
+            <tr>
+                <th>Disponible</th>
+                <td>{{ agriculteur.disponible ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ agriculteur.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{{ path('editAgri.admin', {'id': agriculteur.id}) }}" class="btn btn-warning" >Modifier</a>
+
+    {{ include('agriculteur/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'layout-agri.html.twig' %}
+{% block title %}Ma ferme
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block h1 %}
+Ma ferme
+{% endblock h1 %}
+
+{% block body %}
+<section class="container">
+    {% for notification in app.flashes('success') %}
+    <div class="col-md-6 mx-auto text-center alert alert-success">{{ notification }}</div>
+    {% endfor %}
+        {% for notification in app.flashes('error') %}
+    <div class="col-md-6 mx-auto text-center alert alert-danger">{{ notification }}</div>
+    {% endfor %}
+<div class="form-group">
+    {{ form_start(form)}}
+    <div class="row mt-3">
+        <div class="col-md-4">{{ form_row(form.oldpassword, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-4">{{ form_row(form.password, {'attr': {'class': 'form-control'}})}}</div>
+        <div class="col-md-4">{{ form_row(form.confirm_password, {'attr': {'class': 'form-control'}})}}</div>
+    </div>
+
+    <input type="submit" class="btn btn-success" value="Modifier">
+</div>
+
+<a href="{{ path('agriculteur_index') }}">Retourner à mon profil</a>
+    {{ form_end(form)}}
+</section>
+{% endblock %}

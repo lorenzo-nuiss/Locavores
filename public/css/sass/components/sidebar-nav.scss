@@ -1,0 +1,128 @@
+
+nav.sidebar:hover {
+    li{
+        width: 137px;
+        }
+        .nav-link {
+            padding-left: 12px;
+            transition: all 0.35s;
+        }
+        .menu-text {
+            padding-left: 4px;
+            transition: all 0.3s;
+        }
+        .contain-logo{
+            width: 137px;
+            .logo-container{
+                padding-left: 12px;
+                transition: all 0.35s;
+                span{
+                    padding-left: 4px;
+                    transition: all 0.3s;
+                } 
+            }
+        }
+}
+
+
+nav.sidebar{
+    width: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    color: #fff;
+    transition: all 0.3s;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: $marron;
+    &:hover{
+        width: 137px;
+    }
+     i {
+        font-size: 18px;
+    }
+
+
+    .contain-logo{
+        width: 60px;
+        height: 66px;
+        line-height: 24px;
+        overflow: hidden;
+        padding: 5px;
+        transition: all 0.3s;
+        a{
+            padding-left: 17px;
+            display: flex;
+            justify-content: flex-start;
+            transition: all 0.5s;
+            color: #ffffff ;
+            img{
+                transition: all 0.3s;
+                width: 23px;
+                height: 100%;
+            }
+            span {
+                transform: translate(5px);
+                font-size: 14px;
+                color:$noir;
+                padding-left: 8px;
+                transition: all 0.3s;
+                font-weight: 800;
+            }
+        }
+    }
+
+
+    .logo-container {
+        margin-bottom: 30px;
+        .logo{
+            width: 23px;
+        }
+    }
+
+    a.border-top {
+        border-radius: 0 !important;
+        border-color: rgba(255, 255, 255, 0.3) !important;
+    }
+    li {
+        width: 60px;
+        height: 46px;
+        line-height: 24px;
+        overflow: hidden;
+        padding: 5px;
+        transition: all 0.3s;
+
+        a{
+            padding-left: 17px;
+            display: flex;
+            justify-content: flex-start;
+            transition: all 0.5s;
+            color: #ffffff ;
+            &:hover{
+                color: $vert1;            }
+            &:focus{
+                color: $vert1;
+                            }
+            i {
+                transition: all 0.3s;
+                font-size: 18px;
+                color: #fff;
+            }
+        }
+        .active{
+            background-color: $gris-fonce !important;
+        }
+        .active:hover{
+            cursor: default;
+
+        }
+        span {
+            transform: translate(12px);
+            padding-left: 10px;
+            transition: all 0.3s;
+        }
+        
+    }
+}

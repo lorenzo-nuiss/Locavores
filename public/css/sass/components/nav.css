@@ -1,0 +1,8 @@
+#navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  -webkit-transition: top 0.3s;
+  transition: top 0.3s;
+}
+/*# sourceMappingURL=nav.css.map */
