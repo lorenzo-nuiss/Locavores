@@ -93,7 +93,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Locavor - Bienvenue 
+        echo "Les Locavores - Bienvenue 
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -141,11 +141,12 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
         <div class=\"container\">
             <div class=\"row d-flex align-items-center\">
                 <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12 m-auto text-center\">
-                    <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                    <p>Les locavores est une plateforme où nous mettons en relation <strong>les consommateurs et les producteurs</strong>
+                    <h1>La vitrine de vos produits locaux.</h1>
+                    <p>Profitez de l'espace producteur pour mettre en avant la <strong>qualité de vos produits et séduire les consommateurs 
+\t\t\t\t\t</strong> en quête de produits sains et naturels.
                     </p>
                     <a href=\"";
-        // line 27
+        // line 28
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contact");
         echo "\" class=\"btn btn1\">Nous contacter</a>
                 </div>
@@ -153,19 +154,19 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
         </div>
     </section>
 ";
-        // line 33
+        // line 34
         echo "\t<main class=\"container\">
 \t\t<div class=\"\">
 \t\t\t<div class=\"presentation row\">
 \t\t\t\t";
-        // line 36
+        // line 37
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 36, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 36));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 37, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 37));
         foreach ($context['_seq'] as $context["_key"] => $context["notification"]) {
-            // line 37
+            // line 38
             echo "\t\t\t\t\t\t\t\t\t\t<div class=\"mx-auto alert-dismissible fade show alert alert-success\" role=\"alert\">
                     ";
-            // line 38
+            // line 39
             echo twig_escape_filter($this->env, $context["notification"], "html", null, true);
             echo "
                     <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\">
@@ -176,10 +177,10 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['notification'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
+        // line 44
         echo "\t\t\t\t";
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 43, $this->source); })()), "user", [], "any", false, false, false, 43), "disponible", [], "any", false, false, false, 43), false))) {
-            // line 44
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 44, $this->source); })()), "user", [], "any", false, false, false, 44), "disponible", [], "any", false, false, false, 44), false))) {
+            // line 45
             echo "\t\t\t\t\t\t\t\t<div class=\"col-md-6 mx-auto text-center alert alert-warning d-flex\"  role=\"alert\">
 \t\t\t\t\t\t\t\t\t<div class=\"flex-grow-1\">
 \t\t\t\t\t\t\t\t\tAttention <strong>vous êtes indisponible</strong>, rendez vous dans votre 
@@ -189,7 +190,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t";
         }
-        // line 52
+        // line 53
         echo "
 
 \t\t\t</div>
@@ -197,20 +198,20 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t</div>
 
 \t\t";
-        // line 59
+        // line 60
         echo "
 \t\t<!--  PART WITH STICKY -->
 \t\t<section class=\"sticky-element row\">
 \t\t\t<aside class=\"col-lg-5 col-sm-12\">
 \t\t\t\t<div class=\"sticky-div\">
 
-\t\t\t\t\t<h2 class=\"\">Lorem ipsum dolor sit amet consectetur</h2>
+\t\t\t\t\t<h2 class=\"\">Valorisez vos produits locaux dès maintenant</h2>
                     <p>Nous voulons que les que Les producteurs locaux puisses vendre directement leurs produits aux consommateurs sans avoir à passer par un distributeur 
             et pouvoirs <strong>fixés le prix de vente de ses produits librement</strong>, tandis que les consommateurs pourront
              <strong>savoir ce qu'il y a exactement dans leurs assiettes</strong> tout en participant au commerce local.</p>
 
 \t\t\t\t\t<a href=\"";
-        // line 70
+        // line 71
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("agriculteur_profil");
         echo "\" class=\"btn btn1\">Voir mon magasin</a>
 \t\t\t\t\t<lottie-player src=\"https://assets1.lottiefiles.com/packages/lf20_fzq71t74.json\" background=\"transparent\" speed=\"0.75\" style=\"width: 300px; height: 300px;\" autoplay></lottie-player>
@@ -236,13 +237,13 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</svg>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Special title treatment</h5>
-\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, fugit.</p>
+\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Je m'inscris sur le site</h5>
+\t\t\t\t\t\t\t\t<p>Je crée un compte producteur sur le site en remplissant les informations demandées.</p>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 
 \t\t\t\t\t\t";
-        // line 100
+        // line 101
         echo "\t\t\t\t\t\t<div class=\"ligne d-flex my-4\">
 \t\t\t\t\t\t\t<div class=\"number pe-4\">
 \t\t\t\t\t\t\t\t<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewbox=\"0 0 496.158 496.158\" style=\"enable-background:new 0 0 496.158 496.158;\" xml:space=\"preserve\">
@@ -264,14 +265,14 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</svg>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Special title treatment</h5>
-\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, fugit.</p>
+\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Je complète ma boutique</h5>
+\t\t\t\t\t\t\t\t<p>Je peux ajouter mes produits, décrire leur provenance et leur mode de production, ajouter des photos pour les rendre plus attrayants.</p>
 \t\t\t\t\t\t\t</div>
 
 \t\t\t\t\t\t</div>
 
 \t\t\t\t\t\t";
-        // line 128
+        // line 129
         echo "\t\t\t\t\t\t<div class=\"ligne d-flex my-4\">
 \t\t\t\t\t\t\t<div class=\"number pe-4\">
 \t\t\t\t\t\t\t\t<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewbox=\"0 0 496.158 496.158\" style=\"enable-background:new 0 0 496.158 496.158;\" xml:space=\"preserve\">
@@ -298,13 +299,13 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</svg>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Special title treatment</h5>
-\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, fugit.</p>
+\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Les consommateurs consultent ma boutique</h5>
+\t\t\t\t\t\t\t\t<p>Les consommateurs peuvent consulter ma boutique en ligne et commander mes produits s'ils le souhaitent. Ils peuvent également me contacter pour toute question ou demande particulière.</p>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 
 \t\t\t\t\t\t";
-        // line 160
+        // line 161
         echo "\t\t\t\t\t\t<div class=\"ligne d-flex my-4\">
 
 \t\t\t\t\t\t\t<div class=\"number pe-4\">
@@ -322,51 +323,49 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</svg>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Special title treatment</h5>
-\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, fugit.</p>
+\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Je reçois les clients</h5>
+\t\t\t\t\t\t\t\t<p>Les clients intéressés par mes produits peuvent me contacter directement pour venir me rencontrer et acheter mes produits en personne. Je peux ainsi leur faire découvrir mes produits et leur expliquer ma méthode de production.</p>
+\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t";
-        // line 182
+        // line 184
         echo "\t\t\t\t\t</div>
 \t\t\t\t</div>
 
 \t\t\t\t<div class=\"card block-advantage\">
 
 \t\t\t\t\t<div class=\"card-body d-flex\">
-\t\t\t\t\t\t<h4>Les avantages de Locavor</h4>
+\t\t\t\t\t\t<h4>Les avantages chez les locavores</h4>
 \t\t\t\t\t\t<div class=\"item pe-4\">
 
 \t\t\t\t\t\t\t<h5>
 \t\t\t\t\t\t\t\t<i class=\"bi bi-droplet-half\"></i>
 \t\t\t\t\t\t\t\tEcologique
 \t\t\t\t\t\t\t</h5>
-\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet consectetur adipisicing elit neque
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                        voluptatibus facere veritatis</p>
+\t\t\t\t\t\t\t<p>Vendez vos produits locaux en limitant les émissions de CO2 liées au transport.</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"item ps-4\">
 \t\t\t\t\t\t\t<h5>
 \t\t\t\t\t\t\t\t<i class=\"bi bi-chat-dots\"></i>Interactif</h5>
 \t\t\t\t\t\t\t<p>
-\t\t\t\t\t\t\t\tLorem ipsum dolor sit amet consectetur adipis icing elit neque
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                        voluptatibus facere veritatis
+\t\t\t\t\t\t\t\tRencontrez les consommateurs, partagez votre savoir-faire et faites connaître votre métier.
 \t\t\t\t\t\t\t</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"item pe-4\">
 
 \t\t\t\t\t\t\t<h5>
-\t\t\t\t\t\t\t\t<i class=\"bi bi-shop\"></i>Equitable</h5>
-\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet consectetur adipis icing elit neque
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                        voluptatibus facere veritatis
+\t\t\t\t\t\t\t\t<i class=\"bi bi-shop\"></i>Visibilité</h5>
+\t\t\t\t\t\t\t<p>
+\t\t\t\t\t\t\t\tAvec notre plateforme en ligne, vous pouvez augmenter votre visibilité auprès des consommateurs locaux et attirer de nouveaux clients.
 \t\t\t\t\t\t\t</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"item ps-4\">
 
 \t\t\t\t\t\t\t<h5>
 \t\t\t\t\t\t\t\t<i class=\"bi bi-piggy-bank\"></i>
-\t\t\t\t\t\t\t\tPrix libre</h5>
-\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet consectetur adipis icing elit neque
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                        voluptatibus facere veritatis
+\t\t\t\t\t\t\t\tEquitable</h5>
+\t\t\t\t\t\t\t<p>Fixez le prix juste de votre production et valorisez votre travail en toute liberté et sans commission.
 \t\t\t\t\t\t\t</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -377,7 +376,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t<h4 class=\"card-title\">Question fréquentes</h4>
 \t\t\t\t\t\t";
-        // line 231
+        // line 230
         echo "\t\t\t\t\t\t<div class=\"accordion\" id=\"accordionExample\">
 \t\t\t\t\t\t\t<div class=\"accordion-item\">
 \t\t\t\t\t\t\t\t<h5 class=\"accordion-header\" id=\"headingOne\">
@@ -388,7 +387,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t<div id=\"collapseOne\" class=\"accordion-collapse collapse show\" aria-labelledby=\"headingOne\" data-bs-parent=\"#accordionExample\">
 \t\t\t\t\t\t\t\t\t<div class=\"accordion-body\">
 \t\t\t\t\t\t\t\t\t\t<strong></strong>
-\t\t\t\t\t\t\t\t\t\tIt is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can , though the transition does limit overflow.
+\t\t\t\t\t\t\t\t\t\tVeuilliez vous rapprocher de l'administrateur pour avoir plus d'informations.
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
@@ -412,8 +411,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</h5>
 \t\t\t\t\t\t\t\t<div id=\"collapseThree\" class=\"accordion-collapse collapse\" aria-labelledby=\"headingThree\" data-bs-parent=\"#accordionExample\">
 \t\t\t\t\t\t\t\t\t<div class=\"accordion-body\">
-\t\t\t\t\t\t\t\t\t\tIt is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can , though the transition does limit overflow.
-\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\tLe site a pour but de mettre en relation les producteurs locaux avec les consommateurs pour leur permettre de vendre leurs produits directement sans passer par un distributeur et ainsi favoriser le commerce local et les circuits courts.\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
 
@@ -432,7 +430,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t</div>
 
 \t\t\t\t\t\t";
-        // line 285
+        // line 283
         echo "\t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
@@ -450,7 +448,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 
     }
 
-    // line 295
+    // line 293
     public function block_js($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -460,7 +458,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "js"));
 
-        // line 296
+        // line 294
         echo "\t<script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>
 ";
         
@@ -483,7 +481,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 
     public function getDebugInfo()
     {
-        return array (  464 => 296,  454 => 295,  436 => 285,  381 => 231,  331 => 182,  308 => 160,  275 => 128,  246 => 100,  214 => 70,  201 => 59,  193 => 52,  183 => 44,  180 => 43,  169 => 38,  166 => 37,  162 => 36,  157 => 33,  149 => 27,  140 => 20,  130 => 18,  117 => 14,  107 => 13,  87 => 9,  72 => 3,  62 => 2,  39 => 1,);
+        return array (  462 => 294,  452 => 293,  434 => 283,  380 => 230,  333 => 184,  309 => 161,  276 => 129,  247 => 101,  215 => 71,  202 => 60,  194 => 53,  184 => 45,  181 => 44,  170 => 39,  167 => 38,  163 => 37,  158 => 34,  150 => 28,  140 => 20,  130 => 18,  117 => 14,  107 => 13,  87 => 9,  72 => 3,  62 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -496,7 +494,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t}
 \t</style>
 {% endblock %}
-{% block title %}Locavor - Bienvenue 
+{% block title %}Les Locavores - Bienvenue 
 {% endblock %}
 
 {# je met la page accueil comme active pour la naviguation #}
@@ -511,8 +509,9 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
         <div class=\"container\">
             <div class=\"row d-flex align-items-center\">
                 <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12 m-auto text-center\">
-                    <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                    <p>Les locavores est une plateforme où nous mettons en relation <strong>les consommateurs et les producteurs</strong>
+                    <h1>La vitrine de vos produits locaux.</h1>
+                    <p>Profitez de l'espace producteur pour mettre en avant la <strong>qualité de vos produits et séduire les consommateurs 
+\t\t\t\t\t</strong> en quête de produits sains et naturels.
                     </p>
                     <a href=\"{{ path('contact') }}\" class=\"btn btn1\">Nous contacter</a>
                 </div>
@@ -552,7 +551,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t<aside class=\"col-lg-5 col-sm-12\">
 \t\t\t\t<div class=\"sticky-div\">
 
-\t\t\t\t\t<h2 class=\"\">Lorem ipsum dolor sit amet consectetur</h2>
+\t\t\t\t\t<h2 class=\"\">Valorisez vos produits locaux dès maintenant</h2>
                     <p>Nous voulons que les que Les producteurs locaux puisses vendre directement leurs produits aux consommateurs sans avoir à passer par un distributeur 
             et pouvoirs <strong>fixés le prix de vente de ses produits librement</strong>, tandis que les consommateurs pourront
              <strong>savoir ce qu'il y a exactement dans leurs assiettes</strong> tout en participant au commerce local.</p>
@@ -581,8 +580,8 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</svg>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Special title treatment</h5>
-\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, fugit.</p>
+\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Je m'inscris sur le site</h5>
+\t\t\t\t\t\t\t\t<p>Je crée un compte producteur sur le site en remplissant les informations demandées.</p>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 
@@ -608,8 +607,8 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</svg>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Special title treatment</h5>
-\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, fugit.</p>
+\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Je complète ma boutique</h5>
+\t\t\t\t\t\t\t\t<p>Je peux ajouter mes produits, décrire leur provenance et leur mode de production, ajouter des photos pour les rendre plus attrayants.</p>
 \t\t\t\t\t\t\t</div>
 
 \t\t\t\t\t\t</div>
@@ -641,8 +640,8 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</svg>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Special title treatment</h5>
-\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, fugit.</p>
+\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Les consommateurs consultent ma boutique</h5>
+\t\t\t\t\t\t\t\t<p>Les consommateurs peuvent consulter ma boutique en ligne et commander mes produits s'ils le souhaitent. Ils peuvent également me contacter pour toute question ou demande particulière.</p>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 
@@ -664,8 +663,9 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</svg>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Special title treatment</h5>
-\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, fugit.</p>
+\t\t\t\t\t\t\t\t<h5 class=\"card-title\">Je reçois les clients</h5>
+\t\t\t\t\t\t\t\t<p>Les clients intéressés par mes produits peuvent me contacter directement pour venir me rencontrer et acheter mes produits en personne. Je peux ainsi leur faire découvrir mes produits et leur expliquer ma méthode de production.</p>
+\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t{#  #}
@@ -675,39 +675,36 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t<div class=\"card block-advantage\">
 
 \t\t\t\t\t<div class=\"card-body d-flex\">
-\t\t\t\t\t\t<h4>Les avantages de Locavor</h4>
+\t\t\t\t\t\t<h4>Les avantages chez les locavores</h4>
 \t\t\t\t\t\t<div class=\"item pe-4\">
 
 \t\t\t\t\t\t\t<h5>
 \t\t\t\t\t\t\t\t<i class=\"bi bi-droplet-half\"></i>
 \t\t\t\t\t\t\t\tEcologique
 \t\t\t\t\t\t\t</h5>
-\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet consectetur adipisicing elit neque
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                        voluptatibus facere veritatis</p>
+\t\t\t\t\t\t\t<p>Vendez vos produits locaux en limitant les émissions de CO2 liées au transport.</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"item ps-4\">
 \t\t\t\t\t\t\t<h5>
 \t\t\t\t\t\t\t\t<i class=\"bi bi-chat-dots\"></i>Interactif</h5>
 \t\t\t\t\t\t\t<p>
-\t\t\t\t\t\t\t\tLorem ipsum dolor sit amet consectetur adipis icing elit neque
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                        voluptatibus facere veritatis
+\t\t\t\t\t\t\t\tRencontrez les consommateurs, partagez votre savoir-faire et faites connaître votre métier.
 \t\t\t\t\t\t\t</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"item pe-4\">
 
 \t\t\t\t\t\t\t<h5>
-\t\t\t\t\t\t\t\t<i class=\"bi bi-shop\"></i>Equitable</h5>
-\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet consectetur adipis icing elit neque
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                        voluptatibus facere veritatis
+\t\t\t\t\t\t\t\t<i class=\"bi bi-shop\"></i>Visibilité</h5>
+\t\t\t\t\t\t\t<p>
+\t\t\t\t\t\t\t\tAvec notre plateforme en ligne, vous pouvez augmenter votre visibilité auprès des consommateurs locaux et attirer de nouveaux clients.
 \t\t\t\t\t\t\t</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"item ps-4\">
 
 \t\t\t\t\t\t\t<h5>
 \t\t\t\t\t\t\t\t<i class=\"bi bi-piggy-bank\"></i>
-\t\t\t\t\t\t\t\tPrix libre</h5>
-\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet consectetur adipis icing elit neque
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                        voluptatibus facere veritatis
+\t\t\t\t\t\t\t\tEquitable</h5>
+\t\t\t\t\t\t\t<p>Fixez le prix juste de votre production et valorisez votre travail en toute liberté et sans commission.
 \t\t\t\t\t\t\t</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -728,7 +725,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t<div id=\"collapseOne\" class=\"accordion-collapse collapse show\" aria-labelledby=\"headingOne\" data-bs-parent=\"#accordionExample\">
 \t\t\t\t\t\t\t\t\t<div class=\"accordion-body\">
 \t\t\t\t\t\t\t\t\t\t<strong></strong>
-\t\t\t\t\t\t\t\t\t\tIt is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can , though the transition does limit overflow.
+\t\t\t\t\t\t\t\t\t\tVeuilliez vous rapprocher de l'administrateur pour avoir plus d'informations.
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
@@ -752,8 +749,7 @@ class __TwigTemplate_5214cc3de63a47092a64ffca79fdfcbb39532681f6424742c516a460368
 \t\t\t\t\t\t\t\t</h5>
 \t\t\t\t\t\t\t\t<div id=\"collapseThree\" class=\"accordion-collapse collapse\" aria-labelledby=\"headingThree\" data-bs-parent=\"#accordionExample\">
 \t\t\t\t\t\t\t\t\t<div class=\"accordion-body\">
-\t\t\t\t\t\t\t\t\t\tIt is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can , though the transition does limit overflow.
-\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\tLe site a pour but de mettre en relation les producteurs locaux avec les consommateurs pour leur permettre de vendre leurs produits directement sans passer par un distributeur et ainsi favoriser le commerce local et les circuits courts.\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
 

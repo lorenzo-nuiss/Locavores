@@ -1,11 +1,16 @@
+@import "../abstract/variable";
+
 section.feature {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 
   div {
-    min-width: 50%;
+    min-width: 80%;
     padding: 3px;
+    @media (min-width: 780px) {
+      min-width: 50%;
+    }
   }
   div.card {
     background-size: cover;

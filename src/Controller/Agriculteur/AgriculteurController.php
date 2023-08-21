@@ -168,7 +168,6 @@ class AgriculteurController extends AbstractController
                 }
             }  
 
-// a tester, il faut aussi supprimer la photo de la table agri
             $file = $agri->getPhoto();
             if($file){
                 $agri->setPhoto(NULL);

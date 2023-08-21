@@ -20,29 +20,29 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasherInterface): Response
     {
         $user = $this->getUser();
-        if ($user->getRoles('ROLE_SUPER_ADMIN')){
+        if ($user->getRoles('ROLE_SUPER_ADMIN')) {
 
             $admin = new Admin();
             $form = $this->createForm(RegistrationAdminFormType::class, $admin);
-        $form->handleRequest($request);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
-            $admin->setPassword(
-            $userPasswordHasherInterface->hashPassword(
-                    $admin,
-                    $form->get('plainPassword')->getData()
-                )
-            );
+            if ($form->isSubmitted() && $form->isValid()) {
+                // encode the plain password
+                // $admin->setPassword(
+                // $userPasswordHasherInterface->hashPassword(
+                //         $admin,
+                //         $form->get('plainPassword')->getData()
+                //     )
+                // );
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($admin);
-            $entityManager->flush();
-            // do anything else you need here, like send an email
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($admin);
+                $entityManager->flush();
+                // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('admin_index');
+                return $this->redirectToRoute('admin_index');
+            }
         }
-    }
 
         return $this->render('registration/registerAdmin.html.twig', [
             'registrationForm' => $form->createView(),

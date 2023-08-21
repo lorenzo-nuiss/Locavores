@@ -1,0 +1,36 @@
+footer {
+  background-color: hsl(13, 44%, 10%);
+  padding-top: 50px;
+}
+footer .contenu-footer {
+  padding-bottom: 47px;
+}
+footer .contenu-footer h6 {
+  color: hsl(84, 10%, 92%);
+}
+footer .contenu-footer .bi {
+  color: #527510;
+}
+footer .contenu-footer div.contact .bi {
+  padding-right: 10px;
+}
+footer .contenu-footer div.contact p {
+  color: hsl(80, 9%, 70%);
+  font-size: 14px;
+}
+footer .contenu-footer div.page a,
+footer .contenu-footer div.page p {
+  color: #527510;
+  font-size: 14px;
+}
+footer .contenu-footer div.page a {
+  text-decoration: none;
+}
+footer div.copyright {
+  background-color: hsl(13, 44%, 6%);
+  color: hsl(80, 9%, 30%);
+}
+
+header {
+  padding-bottom: 1px !important;
+}/*# sourceMappingURL=footer.css.map */

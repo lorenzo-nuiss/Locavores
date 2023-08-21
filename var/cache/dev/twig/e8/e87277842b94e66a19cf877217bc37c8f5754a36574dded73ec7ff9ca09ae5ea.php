@@ -116,7 +116,7 @@ class __TwigTemplate_56e42f8890f8965de2b49666c509666ddac79085db7f9d652c7504835e6
 
         // line 20
         echo "
-<section class=\"bgimage banner\">
+<section class=\"bgimage banner-home banner\">
     <div class=\"container\">
         <div class=\"row d-flex align-items-center\">
             <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">
@@ -333,7 +333,7 @@ Découvrez les producteurs de votre région -
 
 {% block body %}
 
-<section class=\"bgimage banner\">
+<section class=\"bgimage banner-home banner\">
     <div class=\"container\">
         <div class=\"row d-flex align-items-center\">
             <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">

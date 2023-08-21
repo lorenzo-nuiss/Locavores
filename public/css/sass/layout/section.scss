@@ -1,9 +1,13 @@
+@import "../abstract/variable";
 
 main {
   div.service-text {
     text-align: center;
-    width: 65%;
+    width: 90%;
     margin: 0 auto 60px auto;
+    @media (min-width: 780px) {
+      width: 65%;
+    }
     h2.typo {
       font-weight: 600;
     }
@@ -24,6 +28,7 @@ main {
       background-repeat: no-repeat;
 
       @media (max-width: 780px) {
+        border-radius: 0px;
         background-size: cover;
         height: 300px;
       }

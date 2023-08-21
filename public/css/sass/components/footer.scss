@@ -1,3 +1,5 @@
+@import "../abstract/variable";
+
 footer {
   background-color: $noir;
   padding-top: 50px;
@@ -34,4 +36,7 @@ footer {
     background-color: hsl(13, 44%, 6%);
     color: $gris-fonce;
   }
+}
+header{
+  padding-bottom: 1px !important;
 }
