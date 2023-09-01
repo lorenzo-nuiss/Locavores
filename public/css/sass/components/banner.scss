@@ -52,14 +52,20 @@ section.bgimage {
       }
     }
   }
-section.banner-radius{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.68) 100%, rgba(0, 0, 0, 0.68) 100%),
-      url("../../images/Vache-lait-viande-locavor.jpg") !important;
+  div.user{
+    section.banner-radius{
+      background-image: linear-gradient( rgba(0, 0, 0, 0.68) 100%, rgba(0, 0, 0, 0.68) 100%),
+      url("../../images/Vache-lait-viande-locavor.jpg");
       border-radius: 15px;
       @media (min-width: 992px) {
         margin: 20px 20px 15px 45px;
       }
-}  
+      @media (max-width: 991px) {
+        height: min-content;
+        margin: 20px 20px 15px 45px;
+      }
+    }  
+  }
 
 .banner-epi{
   margin-top: 20px;

@@ -110,6 +110,6 @@ public function activation($token, AgriculteurRepository $users)
     $this->addFlash('message', 'Utilisateur activé avec succès');
 
     // On retourne à l'accueil
-    return $this->redirectToRoute('accueil');
+    return $this->redirectToRoute('home');
 }
 }
