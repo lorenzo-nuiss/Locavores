@@ -44,7 +44,6 @@ class SecurityController extends AbstractController
             $entityManager->flush();
 
             // do anything else you need here, like send an email
-
     
                 $email = (new TemplatedEmail())
                     ->from(new Address('service.locavor@gmail.com', 'Inscription Locavor'))
